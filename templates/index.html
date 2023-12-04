@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MQTT Messages</title>
+</head>
+<body>
+    <script src="https://cdn.socket.io/socket.io-3.0.3.min.js"></script>
+    <script>
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    socket.on('mqtt_update', function(data) {
+        // Add the new message to the list
+        var ul = document.getElementById("messages-list");
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode(data.message));
+        ul.appendChild(li);
+    });
+    </script>
+    <h1>Recent MQTT Messages</h1>
+    <ul id="messages-list">
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
