@@ -1,0 +1,175 @@
+body {
+  background-color: white;
+  color: black;
+  font-family: 'Calibri', sans-serif;
+}
+
+#mqttChartContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  height: 50vh;
+}
+
+#mqttChart {
+  width: 100%;
+  height: auto;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.generic-button, .stop-button {
+  font-family: 'Calibri', sans-serif;
+  font-size: 20px;
+  padding: 15px 30px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #074a54; /* Color de fondo del botón */
+  color: white; /* Color del texto */
+}
+
+.stop-button {
+  background-color: rgb(223, 5, 5); /* Color de fondo del botón */    
+}
+
+.stop-button:hover {
+  background-color: rgb(182, 0, 0); /* Color de fondo del botón */
+}
+
+.generic-button:hover {
+  background-color: #04272d; /* Color de fondo al pasar el mouse por encima */
+}
+
+/* Estilos para el toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Estilo del slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #074a54;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Posicionamiento del toggle */
+.toggle-container {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: flex; /* Alinea horizontalmente el toggle y el título */
+  align-items: center; /* Asegura que el toggle y el título estén centrados verticalmente */
+}
+
+.toggle-title {
+  margin-left: 10px; /* Espacio entre el toggle y el título */
+  font-size: 16px; /* Tamaño del texto */
+}
+
+
+@media (max-width: 600px) {
+  .button-container {
+      flex-direction: column;
+  }
+
+  .generic-button, .stop-button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 5px;
+      width: 100%; /* Opcional: Puedes hacer que ocupen todo el ancho */
+  }
+
+  .toggle-container {
+      position: relative;
+      top: 10px;
+      right: 10px;
+      margin-bottom: 20px;
+      margin-left: 15px;
+      justify-content: flex-start;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    #mqttChartContainer {
+        background-color: #1a1a1a; /* Un fondo oscuro más suave */
+        color: white;
+    }
+
+    .generic-button {
+        background-color: #075a61; /* Una variante más oscura de #074a54 */
+        color: white;
+    }
+
+    .stop-button {
+        background-color: #df0505; /* Mantener el rojo del botón de detención */
+        color: white;
+    }
+
+    .generic-button:hover {
+        background-color: #046a73; /* Un tono ligeramente más claro para hover */
+    }
+
+    .stop-button:hover {
+        background-color: #c00404; /* Un rojo más oscuro para hover */
+    }
+
+    .switch .slider {
+        background-color: #aaa;
+    }
+
+    .switch input:checked + .slider {
+        background-color: #075a61; /* Mantener el color del slider activo */
+    }
+
+    .toggle-title {
+        color: white;
+    }
+}
